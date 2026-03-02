@@ -2,74 +2,181 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация - Modeling Time</title>
-    <link rel="stylesheet" href="style.css">
+    
     <style>
-        .auth-container {
+        /* Общие стили страницы (такие же, как в signup.html) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('bg-polygons.jpg') no-repeat center center fixed; 
+            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 50px;
-            background: url('polygon-bg.png') no-repeat center center fixed;
-            background-size: cover;
             min-height: 100vh;
         }
-        .header-line {
+
+        /* Заголовок страницы с градиентом */
+        .page-header {
             width: 100%;
             text-align: center;
-            border-bottom: 3px solid;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 6px solid;
             border-image: linear-gradient(to right, #D9D9D9, #737373) 1;
-            padding-bottom: 20px;
             margin-bottom: 40px;
+            position: relative;
         }
-        .form-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .logo-small {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+        }
+
+        /* Белая карточка авторизации */
+        .auth-card {
+            background: #F2F2F2;
+            border: 1px solid #D9D9D9;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 350px;
+            padding: 40px;
+            width: 450px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             text-align: center;
         }
-        .input-group { margin-bottom: 15px; text-align: left; }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #737373;
-            background: #f0f0f0;
+
+        /* Поля ввода */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
         }
-        .btn-submit {
-            margin-top: 20px;
-            padding: 10px 30px;
-            border: 2px solid #737373;
-            background: white;
-            cursor: pointer;
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: #F0F0F0;
+            border: 1px solid #737373;
             font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        /* Блок под паролем (чекбокс и забыли пароль) */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        .form-actions label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .form-actions a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .form-actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Кнопки и ссылки перехода */
+        .signup-link-section {
+            margin-bottom: 30px;
+        }
+
+        .btn-link-small {
+            background: #E0E0E0;
+            border: 1px solid #737373;
+            border-radius: 20px;
+            padding: 8px 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        .btn-submit-main {
+            width: 100%;
+            padding: 15px;
+            background: #F2F2F2;
+            border: 3px solid #333;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit-main:hover {
+            background: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="auth-container">
-        <div class="header-line">
-            <h1>Авторизоваться</h1>
-        </div>
-        <div class="form-card">
-            <form>
-                <div class="input-group">
-                    <input type="text" placeholder="Логин">
-                </div>
-                <div class="input-group">
-                    <input type="password" placeholder="Пароль">
-                </div>
-                <div style="display: flex; justify-content: space-between; font-size: 12px;">
-                    <label><input type="checkbox"> Показать пароль</label>
-                    <a href="#">Забыли пароль?</a>
-                </div>
-                <p style="margin-top: 20px; font-size: 14px;">Еще не зарегистрированы?</p>
-                <a href="signup.html" class="cta-button" style="padding: 5px 15px; font-size: 14px;">Регистрация</a>
-                <br>
-                <button type="submit" class="btn-submit">Авторизоваться</button>
-            </form>
-        </div>
+
+    <div class="page-header">
+        <a href="index.html">
+            <img src="icon-clock.png" alt="Logo" class="logo-small">
+        </a>
+        <h1>Авторизоваться</h1>
     </div>
+
+    <div class="auth-card">
+        <form action="#" method="post">
+            
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Логин" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+            </div>
+
+            <div class="form-actions">
+                <label for="show-pass">
+                    <input type="checkbox" id="show-pass" onclick="togglePassword()">
+                    Показать пароль
+                </label>
+                <a href="#">Забыли пароль?</a>
+            </div>
+
+            <div class="signup-link-section">
+                <p style="font-size: 12px; margin-bottom: 10px; color: #333;">Еще не зарегистрированы?</p>
+                <a href="signup.html" class="btn-link-small">Регистрация</a>
+            </div>
+
+            <button type="submit" class="btn-submit-main">Авторизоваться</button>
+        </form>
+    </div>
+
+    <script>
+        // Функция для показа/скрытия пароля
+        function togglePassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
 </body>
 </html>
