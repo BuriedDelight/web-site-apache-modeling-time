@@ -14,14 +14,14 @@ body {
 
 .header {
     display: flex;
-    align-items: center;   /* Центрирует ВСЕ элементы шапки (лого, поиск, кнопки) по одной линии */
+    align-items: center;   
     justify-content: space-between;
-    padding: 20px 40px;    /* Увеличиваем padding сверху/снизу (20px), чтобы отступы были равными */
+    padding: 20px 40px;   
     background: rgba(255, 255, 255, 0.9);
     border-bottom: 7px solid #737373;
 }
 
-/* Поиск */
+
 .search-container {
     display: flex;
     border: 1px solid #888;
@@ -29,7 +29,7 @@ body {
     overflow: hidden;
 }
 
-/* Кнопка Меню (Бургер) */
+
 .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -45,11 +45,11 @@ body {
     background: #ccc;
 }
 
-/* Боковое меню */
+
 .side-menu {
     position: fixed;
     top: 0;
-    right: -300px; /* Спрятано за экраном */
+    right: -300px; 
     width: 300px;
     height: 100%;
     background: #fff;
@@ -102,38 +102,34 @@ body {
 
 .logo {
     display: flex;
-    align-items: center;    /* Центрирует текст и иконку по вертикали */
-    gap: 15px;             /* Одинаковое расстояние между иконкой и текстом */
-    /* Убираем лишние внешние отступы, если они были */
+    align-items: center;   
+    gap: 15px;             
     margin: 0; 
 }
 
 .logo-icon {
-    width: 50px;           /* Немного увеличим, чтобы оно не казалось маленьким */
+    width: 50px;          
     height: 50px;
     object-fit: contain;
-    /* margin-right больше не нужен, так как есть gap в родительском блоке */
 }
 
 .logo span {
-    font-size: 32px;       /* Размер текста как на макете */
+    font-size: 32px;       
     font-weight: 500;
     color: var(--text-main);
-    line-height: 1;        /* Убирает лишнее пространство сверху/снизу текста */
+    line-height: 1;        
 }
 
-/* Кнопка Sign Up (треугольная/трапециевидная) */
+
 .btn-signup {
     background-color: #555;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    /* Форма многоугольника */
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
 
-/* Кнопка Log In */
 .btn-login {
     background-color: transparent;
     border: 1px solid #555;
@@ -173,55 +169,54 @@ body {
 
 .hero {
     display: flex;
-    align-items: center;      /* Выравнивание по вертикали (по центру) */
-    justify-content: space-between; /* Распределяем контент по краям */
-    padding: 50px 10%;        /* Отступы по бокам, чтобы текст не лип к краю */
-    min-height: 80vh;         /* Высота блока почти на весь экран */
+    align-items: center;      
+    justify-content: space-between; 
+    padding: 10px 40px;     
+    min-height: 80vh;  
 }
 
-/* Левая часть с текстом */
+
 .hero-content {
-    flex: 0 0 50%;           /* Занимает ровно 50% ширины и не сжимается */
-    text-align: left;        /* Текст прижат к левому краю */
+    flex: 0 0 50%;          
+    text-align: left;  
 }
 
 .hero-content h4 {
     font-size: 24px;
     line-height: 1.4;
-    margin-bottom: 30px;     /* Отступ снизу до кнопки */
+    margin-bottom: 30px;     
     color: #333;
 }
 
-/* Правая часть с картинкой */
 .hero-image {
-    flex: 0 0 45%;           /* Чуть меньше половины, чтобы был зазор */
+    flex: 0 0 45%;         
     display: flex;
-    justify-content: center; /* Центрируем саму картинку внутри её блока */
+    justify-content: center; 
 }
 
 .hero-image img {
-    max-width: 100%;         /* Картинка не вылезет за пределы своих 45% */
-    height: auto;            /* Сохраняем пропорции */
+    max-width: 100%;        
+    height: auto;        
     object-fit: contain;
 }
 
 .software-icons {
     display: flex;
-    gap: 25px;           /* Расстояние между иконками */
-    margin-top: 30px;    /* Отступ сверху от кнопки */
-    padding-left: 5px;   /* Небольшой отступ слева для визуального выравнивания */
+    gap: 25px;           
+    margin-top: 30px;    
+    padding-left: 5px;  
     align-items: center;
 }
 
 .software-icons img {
     height: 80px;        
     width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Добавил легкую тень */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); 
     transition: transform 0.2s ease;
 }
 
 .software-icons img:hover {
-    transform: scale(1.1); /* Иконка немного увеличивается при наведении */
+    transform: scale(1.1); 
 }
 
 .auth-buttons a {
