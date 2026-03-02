@@ -241,5 +241,10 @@ body {
     text-decoration: underline; 
 }
 
-
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
 
