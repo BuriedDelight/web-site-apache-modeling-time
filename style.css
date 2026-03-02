@@ -1,293 +1,231 @@
 :root {
-    --bg-color: #e5e5e5;
-    --text-color: #333;
-    --accent-gray: #7a7a7a;
+    --bg-color: #f0f0f0;
+    --text-main: #333;
+    --accent-gray: #888;
 }
 
 body {
-    margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
-    /* Для фона можно использовать паттерн или картинку */
-    background-image: url('img/bg-pattern.png'); 
+    background: var(--bg-color) url('background-pattern.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: var(--text-color);
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .header {
     display: flex;
-    align-items: center;
+    align-items: center;   /* Центрирует ВСЕ элементы шапки (лого, поиск, кнопки) по одной линии */
     justify-content: space-between;
-    padding: 10px 40px;
-    background: rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid #999;
+    padding: 20px 40px;    /* Увеличиваем padding сверху/снизу (20px), чтобы отступы были равными */
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ddd;
+}
+
+/* Поиск */
+.search-container {
+    display: flex;
+    border: 1px solid #888;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Кнопка Меню (Бургер) */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #ccc;
+}
+
+/* Боковое меню */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Спрятано за экраном */
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.menu-header {
+    background: #aaa;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.side-menu li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+/* Затемнение фона */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: none;
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
 }
 
 .logo {
     display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
+    align-items: center;    /* Центрирует текст и иконку по вертикали */
+    gap: 15px;             /* Одинаковое расстояние между иконкой и текстом */
+    /* Убираем лишние внешние отступы, если они были */
+    margin: 0; 
 }
 
-.search-container {
-    display: flex;
-    background: white;
-    border: 1px solid #333;
-    padding: 2px 10px;
+.logo-icon {
+    width: 50px;           /* Немного увеличим, чтобы оно не казалось маленьким */
+    height: 50px;
+    object-fit: contain;
+    /* margin-right больше не нужен, так как есть gap в родительском блоке */
 }
 
-.search-container input {
-    border: none;
-    outline: none;
-    padding: 5px;
+.logo span {
+    font-size: 32px;       /* Размер текста как на макете */
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1;        /* Убирает лишнее пространство сверху/снизу текста */
 }
 
-/* Треугольные кнопки */
-.auth-nav {
-    display: flex;
-    align-items: center;
-    gap: 0;
-}
-
+/* Кнопка Sign Up (треугольная/трапециевидная) */
 .btn-signup {
-    background: var(--accent-gray);
+    background-color: #555;
     color: white;
-    padding: 20px 30px;
-    text-decoration: none;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Треугольник */
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    /* Форма многоугольника */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
 
+/* Кнопка Log In */
 .btn-login {
-    background: #f0f0f0;
-    color: #333;
-    padding: 20px 30px;
-    text-decoration: none;
-    clip-path: polygon(0 0, 100% 0, 50% 100%); /* Перевернутый треугольник */
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Основная секция */
-.hero {
-    display: flex;
-    padding: 50px;
-    align-items: center;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-text {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    max-width: 500px;
-    margin-bottom: 40px;
+    background-color: transparent;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    cursor: pointer;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 20px 60px;
-    background: #eee;
-    border: 2px solid #ccc;
-    border-radius: 30px;
-    font-size: 24px;
-    text-decoration: none;
-    color: #444;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
+	display: block;
+    width: fit-content;      /* Кнопка будет размером только по тексту */
+    margin: 0;               /* Убираем центрирование, прижимаем влево */
+
+	
+    /* 1. Увеличиваем размер */
+    padding: 20px 20px;       /* Первое число - отступы сверху/снизу, второе - слева/справа */
+    font-size: 24px;          /* Делаем текст крупнее */
+    font-weight: bold;        /* Делаем текст жирным */
+
+    /* 2. Стилизация (цвет и границы) */
+    background-color: #f0f0f0; /* Светло-серый фон, как на макете */
+    color: #333;               /* Темно-серый цвет текста */
+    border: 2px solid #ccc;    /* Светло-серая граница */
+    border-radius: 15px;       /* Скругляем углы */
+
+    /* 3. Эффекты (тень и курсор) */
+    cursor: pointer;          /* Меняем курсор при наведении */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Легкая тень для объема */
+    
+    /* 4. Позиционирование (опционально, зависит от общей верстки) */
+    display: block;           /* Чтобы кнопка занимала всю ширину, если нужно */
+    
+    /* Плавный переход для эффектов */
+    transition: all 0.3s ease;
 }
 
+/* Эффект при наведении курсора */
 .cta-button:hover {
-    background: #fff;
-    transform: translateY(-2px);
+    background-color: #e0e0e0; /* Немного темнее фон */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Тень становится больше */
+    transform: translateY(-2px); /* Кнопка слегка "всплывает" */
+}
+
+.hero {
+    display: flex;
+    align-items: center;      /* Выравнивание по вертикали (по центру) */
+    justify-content: space-between; /* Распределяем контент по краям */
+    padding: 50px 10%;        /* Отступы по бокам, чтобы текст не лип к краю */
+    min-height: 80vh;         /* Высота блока почти на весь экран */
+}
+
+/* Левая часть с текстом */
+.hero-content {
+    flex: 0 0 50%;           /* Занимает ровно 50% ширины и не сжимается */
+    text-align: left;        /* Текст прижат к левому краю */
+}
+
+.hero-content h4 {
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 30px;     /* Отступ снизу до кнопки */
+    color: #333;
+}
+
+/* Правая часть с картинкой */
+.hero-image {
+    flex: 0 0 45%;           /* Чуть меньше половины, чтобы был зазор */
+    display: flex;
+    justify-content: center; /* Центрируем саму картинку внутри её блока */
 }
 
 .hero-image img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%;         /* Картинка не вылезет за пределы своих 45% */
+    height: auto;            /* Сохраняем пропорции */
+    object-fit: contain;
 }
 
 .software-icons {
-    margin-top: 40px;
     display: flex;
-    gap: 30px;
+    gap: 25px;           /* Расстояние между иконками */
+    margin-top: 30px;    /* Отступ сверху от кнопки */
+    padding-left: 5px;   /* Небольшой отступ слева для визуального выравнивания */
+    align-items: center;
 }
 
 .software-icons img {
-    height: 40px;
-    filter: grayscale(0.5);
+    height: 80px;        
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Добавил легкую тень */
+    transition: transform 0.2s ease;
 }
 
-/* Общие настройки для страницы регистрации */
-.reg-body {
-    background: #e5e5e5 url('img/bg-pattern.png') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.reg-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 20px 40px;
-}
-
-.page-title {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 48px;
-    color: #444;
-    text-transform: none;
-    margin-right: 60px; /* Чтобы сбалансировать логотип слева */
-}
-
-/* Белая карточка формы */
-.reg-container {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 450px;
-    margin-top: 20px;
-}
-
-.reg-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group input {
-    background: #f0f0f0;
-    border: 1px solid #999;
-    padding: 12px 15px;
-    font-size: 18px;
-    border-radius: 5px;
-    outline: none;
-}
-
-.hint {
-    font-size: 12px;
-    color: #777;
-    margin-top: 4px;
-}
-
-.show-pass {
-    text-align: right;
-    font-size: 14px;
-    color: #555;
-}
-
-.login-link-section {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.btn-small-login {
-    display: inline-block;
-    background: #e0e0e0;
-    padding: 5px 20px;
-    border-radius: 15px;
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #ccc;
-    margin-left: 10px;
-}
-
-/* Кнопка внизу */
-.btn-submit {
-    margin-top: 20px;
-    background: #fff;
-    border: 2px solid #555;
-    padding: 15px;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-}
-
-.btn-submit:hover {
-    background: #555;
-    color: #fff;
-}
-
-/* Сообщения об ошибках */
-.alert {
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.error { background: #ffcccc; color: #cc0000; }
-.success { background: #ccffcc; color: #006600; }
-
-/* Специфичные правки для страницы логина */
-.login-card {
-    max-width: 400px; /* Она чуть уже регистрации на макете */
-}
-
-.options-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    margin-top: 5px;
-    color: #444;
-}
-
-.show-pass-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.forgot-pass {
-    text-decoration: none;
-    color: #444;
-}
-
-.forgot-pass:hover {
-    text-decoration: underline;
-}
-
-/* Кнопка "Авторизоваться" с тенью как на макете */
-.main-auth-btn {
-    background: #fff;
-    border: 1px solid #000;
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
-    font-weight: normal;
-    padding: 12px;
-    margin-bottom: 10px;
-}
-
-.main-auth-btn:active {
-    box-shadow: none;
-    transform: translate(2px, 2px);
-}
-
-/* Общий стиль для алертов (если еще не добавили) */
-.alert.error {
-    background: #ffdada;
-    color: #a30000;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 14px;
+.software-icons img:hover {
+    transform: scale(1.1); /* Иконка немного увеличивается при наведении */
 }
