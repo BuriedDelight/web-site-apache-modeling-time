@@ -144,37 +144,31 @@ body {
 
 .cta-button {
 	display: block;
-    width: fit-content;      /* Кнопка будет размером только по тексту */
-    margin: 0;               /* Убираем центрирование, прижимаем влево */
-
+    width: fit-content;      
+    margin: 0;      
+    text-decoration: none;      
 	
-    /* 1. Увеличиваем размер */
-    padding: 20px 20px;       /* Первое число - отступы сверху/снизу, второе - слева/справа */
-    font-size: 24px;          /* Делаем текст крупнее */
-    font-weight: bold;        /* Делаем текст жирным */
+    padding: 20px 20px;       
+    font-size: 24px;          
+    font-weight: bold;       
 
-    /* 2. Стилизация (цвет и границы) */
-    background-color: #f0f0f0; /* Светло-серый фон, как на макете */
-    color: #333;               /* Темно-серый цвет текста */
-    border: 2px solid #ccc;    /* Светло-серая граница */
-    border-radius: 15px;       /* Скругляем углы */
+    background-color: #f0f0f0; 
+    color: #333;               
+    border: 2px solid #ccc;    
+    border-radius: 15px;       
 
-    /* 3. Эффекты (тень и курсор) */
-    cursor: pointer;          /* Меняем курсор при наведении */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Легкая тень для объема */
+    cursor: pointer;        
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /*тень*/
+
+    display: block;       
     
-    /* 4. Позиционирование (опционально, зависит от общей верстки) */
-    display: block;           /* Чтобы кнопка занимала всю ширину, если нужно */
-    
-    /* Плавный переход для эффектов */
     transition: all 0.3s ease;
 }
 
-/* Эффект при наведении курсора */
 .cta-button:hover {
-    background-color: #e0e0e0; /* Немного темнее фон */
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Тень становится больше */
-    transform: translateY(-2px); /* Кнопка слегка "всплывает" */
+    background-color: #e0e0e0; 
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15); 
+    transform: translateY(-2px); 
 }
 
 .hero {
