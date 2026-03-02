@@ -18,7 +18,7 @@ body {
     justify-content: space-between;
     padding: 20px 40px;    /* Увеличиваем padding сверху/снизу (20px), чтобы отступы были равными */
     background: rgba(255, 255, 255, 0.9);
-    border-bottom: 3px solid #ddd;
+    border-bottom: 6px solid #ddd;
 }
 
 /* Поиск */
@@ -229,4 +229,5 @@ body {
 .software-icons img:hover {
     transform: scale(1.1); /* Иконка немного увеличивается при наведении */
 }
+
 
