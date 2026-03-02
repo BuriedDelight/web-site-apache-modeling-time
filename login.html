@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация - Modeling Time</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            background: url('polygon-bg.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+        .header-line {
+            width: 100%;
+            text-align: center;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, #D9D9D9, #737373) 1;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .form-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #737373;
+            background: #f0f0f0;
+        }
+        .btn-submit {
+            margin-top: 20px;
+            padding: 10px 30px;
+            border: 2px solid #737373;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="header-line">
+            <h1>Авторизоваться</h1>
+        </div>
+        <div class="form-card">
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Логин">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Пароль">
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                    <label><input type="checkbox"> Показать пароль</label>
+                    <a href="#">Забыли пароль?</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px;">Еще не зарегистрированы?</p>
+                <a href="signup.html" class="cta-button" style="padding: 5px 15px; font-size: 14px;">Регистрация</a>
+                <br>
+                <button type="submit" class="btn-submit">Авторизоваться</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
