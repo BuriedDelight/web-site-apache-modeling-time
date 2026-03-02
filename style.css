@@ -232,7 +232,14 @@ body {
 
 .auth-buttons a {
     text-decoration: none;
-    display: inline-block; /* Чтобы padding и размеры работали как у кнопок */
+    color: #333; 
+    display: inline-block; 
 }
+
+.auth-buttons a:hover {
+    color: #000;
+    text-decoration: underline; 
+}
+
 
 
