@@ -1,13 +1,181 @@
-<div class="input-group">
-    <input type="text" placeholder="Логин">
-    <small>Латинские буквы и цифры</small>
-</div>
-<div class="input-group">
-    <input type="email" placeholder="E-mail" style="width: 100%; padding: 10px; border: 1px solid #737373; background: #f0f0f0;">
-    <small>Требуется для активации учетной записи</small>
-</div>
-<div class="input-group">
-    <input type="password" placeholder="Пароль">
-    <small>Минимум 6 символов</small>
-</div>
-<button type="submit" class="btn-submit">Зарегистрироваться</button>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Modeling Time</title>
+    
+    <style>
+        /* Основные стили страницы по макету */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Фоновое изображение с полигонами */
+            background: url('bg-polygons.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Заголовок с градиентной линией */
+        .page-header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 6px solid;
+            /* Тот самый градиент от D9D9D9 до 737373 */
+            border-image: linear-gradient(to right, #D9D9D9, #737373) 1;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .logo-small {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+        }
+
+        /* Белая карточка регистрации */
+        .auth-card {
+            background: #F2F2F2;
+            border: 1px solid #D9D9D9;
+            border-radius: 20px;
+            padding: 40px;
+            width: 450px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: #F0F0F0;
+            border: 1px solid #737373;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .input-group small {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .password-toggle {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .password-toggle input {
+            margin-left: 10px;
+        }
+
+        /* Кнопки */
+        .login-link-section {
+            margin-bottom: 20px;
+        }
+
+        .btn-login-small {
+            background: #E0E0E0;
+            border: 1px solid #737373;
+            border-radius: 20px;
+            padding: 8px 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+
+        .btn-submit-main {
+            width: 100%;
+            padding: 15px;
+            background: #F2F2F2;
+            border: 3px solid #333;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit-main:hover {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <a href="index.html">
+            <img src="icon-clock.png" alt="Logo" class="logo-small">
+        </a>
+        <h1>Зарегистрироваться</h1>
+    </div>
+
+    <div class="auth-card">
+        <form action="#" method="post">
+            
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Логин" required>
+                <small>Латинские буквы и цифры</small>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" placeholder="E-mail" required>
+                <small>Требуется для активации учетной записи</small>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+                <small>Минимум 6 символов</small>
+            </div>
+
+            <div class="password-toggle">
+                <label for="show-pass">Показать пароль</label>
+                <input type="checkbox" id="show-pass" onclick="togglePassword()">
+            </div>
+
+            <div class="login-link-section">
+                <p style="font-size: 14px; margin-bottom: 10px;">Уже зарегистрированы?</p>
+                <a href="login.html" class="btn-login-small">Войти</a>
+            </div>
+
+            <button type="submit" class="btn-submit-main">Зарегистрироваться</button>
+        </form>
+    </div>
+
+    <script>
+        // Функция для показа/скрытия пароля
+        function togglePassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+</body>
+</html>
