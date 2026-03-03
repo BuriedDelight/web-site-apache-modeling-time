@@ -6,12 +6,10 @@
     <title>Регистрация - Modeling Time</title>
     
     <style>
-        /* Основные стили страницы по макету */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Фоновое изображение с полигонами */
             background: url('bg-polygons.jpg') no-repeat center center fixed; 
             background-size: cover;
             display: flex;
@@ -20,14 +18,12 @@
             min-height: 100vh;
         }
 
-        /* Заголовок с градиентной линией */
         .page-header {
             width: 100%;
             text-align: center;
             padding: 20px 0;
             background: rgba(255, 255, 255, 0.8);
             border-bottom: 6px solid;
-            /* Тот самый градиент от D9D9D9 до 737373 */
             border-image: linear-gradient(to right, #D9D9D9, #737373) 1;
             margin-bottom: 40px;
             position: relative;
@@ -48,7 +44,6 @@
             width: 50px;
         }
 
-        /* Белая карточка регистрации */
         .auth-card {
             background: #F2F2F2;
             border: 1px solid #D9D9D9;
@@ -92,7 +87,6 @@
             margin-left: 10px;
         }
 
-        /* Кнопки */
         .login-link-section {
             margin-bottom: 20px;
         }
@@ -166,7 +160,6 @@
     </div>
 
     <script>
-        // Функция для показа/скрытия пароля
         function togglePassword() {
             var x = document.getElementById("password");
             if (x.type === "password") {
